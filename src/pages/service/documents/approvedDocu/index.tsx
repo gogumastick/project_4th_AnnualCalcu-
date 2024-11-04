@@ -1,6 +1,6 @@
 import ApprovedDocuPage from "@/features/ServicePage/Documents/ApprovedDocu"
 
-const approvedDocu = ()=>{
+const approveddocu = ()=>{
     return <ApprovedDocuPage/>
 }
-export default approvedDocu
+export default approveddocu

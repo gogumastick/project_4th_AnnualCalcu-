@@ -1,6 +1,6 @@
 import NotiVctPage from "@/features/ServicePage/Vacation/NotiVct"
 
-const notiVacation =()=>{
+const notivacation =()=>{
     return<NotiVctPage/>
 }
-export default notiVacation
+export default notivacation

@@ -1,6 +1,6 @@
 import RequestedVctPage from "@/features/ServicePage/Vacation/RequestedVct"
 
-const requestedVacation =()=>{
+const requestedvacation =()=>{
     return<RequestedVctPage/>
 }
-export default requestedVacation
+export default requestedvacation

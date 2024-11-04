@@ -1,6 +1,6 @@
 import ApprovedVctPage from "@/features/ServicePage/Vacation/ApprovedVct"
 
-const approvedVacation =()=>{
+const approvedvacation =()=>{
     return<ApprovedVctPage/>
 }
-export default approvedVacation
+export default approvedvacation

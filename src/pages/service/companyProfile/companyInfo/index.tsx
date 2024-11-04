@@ -1,6 +1,6 @@
 import CompanyInfoPage from "@/features/ServicePage/CompanyProfile/CompanyInfo"
 
-const companyInfo = ()=>{
+const companyinfo = ()=>{
     return <CompanyInfoPage/>
 }
-export default companyInfo
+export default companyinfo

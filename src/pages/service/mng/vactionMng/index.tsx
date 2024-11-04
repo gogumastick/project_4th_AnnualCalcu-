@@ -1,6 +1,6 @@
 import VacationMngPage from "@/features/ServicePage/Mng/VactionMng"
 
-const vacationMng =()=>{
+const vacationmng =()=>{
     return<VacationMngPage/>
 }
-export default vacationMng
+export default vacationmng

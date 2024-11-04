@@ -1,6 +1,6 @@
 import RemainingVctPage from "@/features/ServicePage/Vacation/RemainingVct"
 
-const remainingVacation =()=>{
+const remainingvacation =()=>{
     return<RemainingVctPage/>
 }
-export default remainingVacation
+export default remainingvacation

@@ -39,18 +39,18 @@ const AddEmplyModal = () => {
             emplyRank: '',
             // 이메일
             emplyEmail: '',
-            // 소속조직이메일(선택사항)
-            emplyOrgEmail: '',
+            // 소속부서이메일(선택사항)
+            emplyDeptEmail: '',
             // 액세스 권한(선택박스로 입력)
             emplyAccessAuth: '',
-            // 본조직(선택박스로 입력)
-            emplyOrgOrganization: '',
-            // 관리조직(선택박스으로 입력)
-            emplyMngOrganization: '',
+            // 본부서(선택박스로 입력)
+            emplyOrigDept: '',
+            // 관리부서(선택박스으로 입력)
+            emplyMngDept: '',
             // 기초연차
-            emplyBeginningVacation: '',
+            emplyBeginningVct: '',
             // 연차발생여부(체크박스 T/F 값)
-            emplyOccurrenceVacation: occuVctCheck ? 'true' : 'false',
+            emplyOccurrenceVct: occuVctCheck ? 'true' : 'false',
             // 입사일
             emplyJoinDate: '',
             // 퇴사여부
@@ -146,7 +146,7 @@ const AddEmplyModal = () => {
                         </div>
                     </Flex>
                     <br />
-                    {/* 직원이메일주소 / 본조직 이메일 주소 */}
+                    {/* 직원이메일주소 / 본부서 이메일 주소 */}
                     <Flex wrap gap="middle">
                         <div>
                             <Typography.Title level={5}>직원이메일주소</Typography.Title>
@@ -159,18 +159,18 @@ const AddEmplyModal = () => {
                             />
                         </div>
                         <div>
-                            <Typography.Title level={5}>본조직 이메일 주소</Typography.Title>
+                            <Typography.Title level={5}>본부서 이메일 주소</Typography.Title>
                             <Input
                                 className="inputBoxExp"
-                                name="emplyOrgEmail"
+                                name="emplyDeptEmail"
                                 onChange={addEmplyFormik.handleChange}
-                                value={addEmplyFormik.values.emplyOrgEmail}
-                                placeholder="본조직 이메일 주소(없을 경우 미입력 가능)"
+                                value={addEmplyFormik.values.emplyDeptEmail}
+                                placeholder="본부서 이메일 주소(없을 경우 미입력 가능)"
                             />
                         </div>
                     </Flex>
                     <br />
-                    {/* 액세스권한 / 본조직 / 관리조직 */}
+                    {/* 액세스권한 / 본부서 / 관리부서 */}
                     <Flex wrap gap="middle">
                         <div>
                             <Typography.Title level={5}>액세스권한</Typography.Title>
@@ -182,21 +182,21 @@ const AddEmplyModal = () => {
                             />
                         </div>
                         <div>
-                            <Typography.Title level={5}>본조직</Typography.Title>
+                            <Typography.Title level={5}>본부서</Typography.Title>
                             <Input
-                                name="emplyOrgOrganization"
+                                name="emplyOrigDept"
                                 onChange={addEmplyFormik.handleChange}
-                                value={addEmplyFormik.values.emplyOrgOrganization}
-                                placeholder="본조직"
+                                value={addEmplyFormik.values.emplyOrigDept}
+                                placeholder="본부서"
                             />
                         </div>
                         <div>
-                            <Typography.Title level={5}>관리조직</Typography.Title>
+                            <Typography.Title level={5}>관리부서</Typography.Title>
                             <Input
-                                name="emplyMngOrganization"
+                                name="emplyMngDept"
                                 onChange={addEmplyFormik.handleChange}
-                                value={addEmplyFormik.values.emplyMngOrganization}
-                                placeholder="관리조직"
+                                value={addEmplyFormik.values.emplyMngDept}
+                                placeholder="관리부서"
                             />
                         </div>
                     </Flex>
@@ -206,21 +206,21 @@ const AddEmplyModal = () => {
                         <div>
                             <Typography.Title level={5}>기초연차</Typography.Title>
                             <Input
-                                name="emplyBeginningVacation"
+                                name="emplyBeginningVct"
                                 onChange={addEmplyFormik.handleChange}
-                                value={addEmplyFormik.values.emplyBeginningVacation}
+                                value={addEmplyFormik.values.emplyBeginningVct}
                                 placeholder="기초연차"
                             />
                         </div>
                         <div>
                             <Checkbox
                                 style={{ marginBottom: 5 }}
-                                name="emplyOccurrenceVacation"
+                                name="emplyOccurrenceVct"
                                 onChange={(e) => {
                                     addEmplyFormik.handleChange(e);
                                     occuVctCheckBox();
                                 }}
-                                value={addEmplyFormik.values.emplyOccurrenceVacation}
+                                value={addEmplyFormik.values.emplyOccurrenceVct}
                                 checked={occuVctCheck}
                             >
                                 연차발생여부(기본값:여)

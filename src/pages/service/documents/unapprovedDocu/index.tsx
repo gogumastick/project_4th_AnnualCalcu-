@@ -1,6 +1,6 @@
 import UnapprovedDocuPage from "@/features/ServicePage/Documents/UnapprovedDocu"
 
-const unapprovedDocu = ()=>{
+const unapproveddocu = ()=>{
     return <UnapprovedDocuPage/>
 }
-export default unapprovedDocu
+export default unapproveddocu

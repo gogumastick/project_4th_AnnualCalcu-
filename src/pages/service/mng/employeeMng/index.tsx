@@ -1,6 +1,6 @@
 import EmployeeMngPage from '@/features/ServicePage/Mng/EmployeeMng';
 
-const employeeMng = () => {
+const employeemng = () => {
     return <EmployeeMngPage />;
 };
-export default employeeMng;
+export default employeemng;

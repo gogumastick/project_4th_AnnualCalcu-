@@ -1,6 +1,6 @@
 import TotalDocuPage from "@/features/ServicePage/Documents/TotalDocu"
 
-const totalDocu = ()=>{
+const totaldocu = ()=>{
     return <TotalDocuPage/>
 }
-export default totalDocu
+export default totaldocu

@@ -1,6 +1,6 @@
 import WritingDocuPage from "@/features/ServicePage/Documents/WritingDocu"
 
-const writingDocu = ()=>{
+const writingdocu = ()=>{
     return <WritingDocuPage/>
 }
-export default writingDocu
+export default writingdocu

@@ -1,6 +1,6 @@
 import HomePage from "@/features/ServicePage/Home"
 
-const Home=()=>{
+const home=()=>{
     return <HomePage/>
 }
-export default Home
+export default home
