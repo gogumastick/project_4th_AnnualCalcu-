@@ -57,7 +57,7 @@ const PurchaseContent = () => {
                 }, {} as Record<number, { checked: boolean; name: string }>),
             });
         }
-    }, [purchaseList, purchaseFormik]);
+    }, [purchaseList]);
 
     return (
         <PurchaseContentStyled>
@@ -128,91 +128,3 @@ const PurchaseContent = () => {
 };
 
 export default PurchaseContent;
-
-// import React, { useState } from 'react';
-// import type { InputNumberProps } from 'antd';
-// import { InputNumber, Space } from 'antd';
-// // import { Checkbox } from 'antd';
-// // import type { GetProp } from 'antd';
-// import { Switch } from 'antd';
-// import { Button } from 'antd';
-// import { PurchaseContentStyled } from '../styled';
-// import { sideBarData } from '@/utill/controllor';
-// import { useRecoilState } from 'recoil';
-// import { buyUserState } from '@/utill/atom';
-
-// const itemList = sideBarData;
-// // 유저 구매
-
-// // 모듈 구매
-// // const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
-// //     console.log('checked = ', checkedValues);
-// // };
-// const onChange = (checked: boolean) => {
-//     console.log(`switch to ${checked}`);
-// };
-
-// // const options = [
-// //     { label: 'Apple', value: 'Apple' },
-// //     { label: 'Pear', value: 'Pear' },
-// //     { label: 'Orange', value: 'Orange' },
-// // ];
-
-// const PurchaseContent = () => {
-//     // const [buyUser, setBuyUser] = useState<number>();
-//     const [buyUser, setBuyUser] = useRecoilState<number>(buyUserState)
-
-//     const decision=()=>{
-
-//     }
-// // console.log('buyUser',buyUser);
-
-// // const userCnt: InputNumberProps['onChange'] = (value) => {
-// //     console.log('changed', value);
-// //     if (typeof value === 'number') {
-// //         setBuyUser(value);
-// //     }
-// //     // setBuyUser(value);
-// //     // if (value !== null) {
-// //     //     setBuyUser(value ?? 0);
-// //     // }
-// // };
-//     return (
-//         <PurchaseContentStyled>
-//             <div className="purchContentWrap">
-//                 <div className="purchUsers">
-//                     <Space wrap>
-//                         <div>사용할 총 USER 수 :</div>
-//                         <InputNumber size="large" min={1} max={100000}
-//                         //  defaultValue={buyUser} onChange={userCnt}
-//                           />
-//                     </Space>
-//                 </div>
-
-//                 <div className="purchModules">
-//                     {/* {itemList.map((item, i) => {
-//                         // console.log('hash.map 값', x);
-//                         return <div key={i + 'ClothDetail'}>{item.name}</div>;
-//                     })} */}
-
-//                     {itemList.map((item, i) => (
-//                         <div key={item.id}>
-//                             <div>{i + 1}</div>
-//                             {item.name}
-//                             <Switch onChange={onChange} />
-
-//                         </div>
-//                         // <Switch/>
-//                     ))}
-
-//                     {/* <Switch onChange={onChange} /> */}
-//                     {/* <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} /> */}
-//                 </div>
-//                 <div className="purchBtn">
-//                     <Button onClick={decision}>구매</Button>
-//                 </div>
-//             </div>
-//         </PurchaseContentStyled>
-//     );
-// };
-// export default PurchaseContent;

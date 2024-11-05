@@ -14,7 +14,7 @@ import { ServicePageLayOutStyled } from './styled';
 import { useRecoilValue } from 'recoil';
 import { purchaseListState } from '@/utill/atom';
 // import MngModule from './Modules/MngModule';
-console.log('test', sideBarData);
+
 
 // 타입 정의
 type MenuData = {
@@ -62,7 +62,7 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
     } = theme.useToken();
 
     const purchaseList = useRecoilValue(purchaseListState);
-    console.log('ServicePageLayOut의 formik ', purchaseList);
+    // console.log('ServicePageLayOut의 formik ', purchaseList);
 
 
     const checkedModuleIds = [
@@ -71,7 +71,7 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
         ]
         .filter(([, module]) => module.checked)
         .map(([id]) => Number(id));
-        console.log('checkedModuleIds',checkedModuleIds);
+        // console.log('checkedModuleIds',checkedModuleIds);
         
     const fixedModules: MenuData[] = [
         ...sideBarData
@@ -96,7 +96,7 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
         ...sideBarBottom,
     ];
   
-    console.log('allMenuItems', allMenuItems);
+    // console.log('allMenuItems', allMenuItems);
 
     // 토글버튼으로 sideBar여닫기
     const [collapsed, setCollapsed] = useState<boolean>(false);
