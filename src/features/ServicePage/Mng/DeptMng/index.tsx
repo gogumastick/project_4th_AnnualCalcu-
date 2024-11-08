@@ -1,6 +1,30 @@
 
+import DeptMngTop from '@/components/Content/Mng/DeptMng/DeptMngTop';
+import { PageContentStyled } from '../../styled';
+import { MngPageStyled } from '../styled';
+import DeptContent from '@/components/Content/Mng/DeptMng/DeptContent';
+import AddDeptModal from '@/components/Content/Mng/DeptMng/AddDeptModal';
+
+
 
 const DeptMngPage = () => {
-    return <div>여기에 DeptMngPage 작성</div>;
+    return (
+        <PageContentStyled>
+            <div className="ContentWrap">
+                <MngPageStyled>
+                    {/* 페이지 상단 이름과 Btn */}
+                    <div className="TopArea">
+                        <DeptMngTop/>
+                    </div>
+
+                    {/* 조직 정보 조회된 화면 */}
+                    <div className="bodyArea">
+                        <DeptContent/>
+                    </div>
+                    <AddDeptModal/>
+                </MngPageStyled>
+            </div>
+        </PageContentStyled>
+    );
 };
 export default DeptMngPage;

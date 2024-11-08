@@ -1,23 +1,25 @@
 import { LaptopOutlined } from '@ant-design/icons';
 import { MainPageStyled } from './styled';
 import { useRouter } from 'next/router';
-import { Button } from 'antd';
-import axios from 'axios';
+// import { Button } from 'antd';
+// import axios from 'axios';
+// import { backUrl } from '@/utill/backUrl';
+
 
 const MainPage = () => {
     const router = useRouter();
-    const testFnc = async () => {
-        const string = '드가자';
-        const result = await axios({
-            method: 'post',
-            url: 'http://localhost:8000/api/back',
-            data: {
-                name: string,
-            },
-        });
+    // const testFnc = async () => {
+    //     const string = '드가자';
+    //     const result = await axios({
+    //         method: 'post',
+    //         url: backUrl,
+    //         data: {
+    //             name: string,
+    //         },
+    //     });
 
-        console.log('axios확인',result.data)
-    };
+    //     console.log('axios확인',result.data)
+    // };
 
     return (
         <>
@@ -57,7 +59,7 @@ const MainPage = () => {
                         회원가입 이동버튼
                     </div>
                     <br />
-                    <Button onClick={testFnc}>test</Button>
+                    {/* <Button onClick={testFnc}>test</Button> */}
                 </div>
             </MainPageStyled>
         </>

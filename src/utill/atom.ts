@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import { DeptDataProps } from './interface';
 
 
 
@@ -14,6 +15,17 @@ export const addedEmplyState = atom<object[]>({
     key : 'addedEmployeeKey',
     default : [],
 })
+
+// 부서추가 모달창
+export const addDeptModalState = atom({
+    key : 'addDeptModalOpenKey',
+    default : false,
+})
+// 등록된 부서 정보(백엔드정보)
+export const deptDataState = atom<DeptDataProps>({
+    key: 'deptDataKey',
+    default: {} as DeptDataProps,
+});
 
 // 구매유저수
 export const purchaseListState = atom({

@@ -26,7 +26,7 @@ const EmplyMngTop = () => {
     return (
         <EmplyMngTopStyled>
             <div className="serchBox">
-                <Search placeholder="직원찾기" onSearch={onSearch} enterButton className="serchBox" />
+                <Search placeholder="직원찾기" onSearch={onSearch} enterButton  />
             </div>
 
             <div className="fncBtnBox">
@@ -46,7 +46,7 @@ const EmplyMngTop = () => {
                     //  size={size}
                     icon={<UsergroupAddOutlined />}
                 >
-                    추가 일괄 업로드
+                    직원 일괄 업로드
                 </Button>
                 <Button
                     // size={size}

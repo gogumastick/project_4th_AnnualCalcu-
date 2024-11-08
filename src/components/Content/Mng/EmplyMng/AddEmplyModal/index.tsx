@@ -1,4 +1,4 @@
-import * as React from 'react';
+// import * as React from 'react';
 import { Modal, Typography, Input,  Flex, Checkbox } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useRecoilState } from 'recoil';
@@ -76,7 +76,7 @@ const AddEmplyModal = () => {
     });
 
     // Modal forMik제출 후 닫기
-    const registerEmpl = () => {
+    const registerEmply = () => {
         addEmplyFormik.submitForm();
         setTimeout(() => {
             addEmplyFormik.resetForm();
@@ -111,8 +111,8 @@ const AddEmplyModal = () => {
     };
 
     return (
-        <Modal open={addEmplyModalOpen} onOk={registerEmpl} onCancel={handleCancel} width={700}>
-            <Typography.Title level={4}><UserOutlined />직원 정보</Typography.Title>
+        <Modal open={addEmplyModalOpen} onOk={registerEmply} onCancel={handleCancel} width={700}>
+            <Typography.Title level={4}><UserOutlined />직원 정보</Typography.Title> <br/>
             <form onSubmit={addEmplyFormik.handleSubmit}>
                 <AddEmplModalStyled>
                     {/* 사원번호 / 직원 이름/ 직급 */}

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { MenuFoldOutlined, MenuUnfoldOutlined, LogoutOutlined, SettingOutlined, SyncOutlined } from '@ant-design/icons';
 
 import type { MenuProps } from 'antd';
+import { ServicePageLayOutStyled } from './styled';
 import { Layout, Menu, theme, Button, Breadcrumb } from 'antd';
 // import Modules from './Modules';
 
@@ -9,10 +11,13 @@ import { sideBarData } from '@/utill/controllor';
 import { sideBarCustom } from '@/utill/controllor';
 import { sideBarTop, sideBarBottom } from '@/utill/controllor';
 // import { ServicePageLayOutStyled } from './styled';
-import { useRouter } from 'next/router';
-import { ServicePageLayOutStyled } from './styled';
+
 import { useRecoilValue } from 'recoil';
+import { useSetRecoilState } from 'recoil';
+import { deptDataState } from '@/utill/atom';
 import { purchaseListState } from '@/utill/atom';
+// 백엔드 deptdataget
+import { fetchDeptData } from '@/utill/api';
 // import MngModule from './Modules/MngModule';
 
 
@@ -64,6 +69,8 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
     const purchaseList = useRecoilValue(purchaseListState);
     // console.log('ServicePageLayOut의 formik ', purchaseList);
 
+    const setDeptData = useSetRecoilState(deptDataState);
+
 
     const checkedModuleIds = [
             ...Object.entries(purchaseList.modules),
@@ -109,6 +116,16 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
 
     const router = useRouter();
     const path = router.asPath;
+
+    // 페이지 생성시 백엔드에서 데이터 가져오기
+    useEffect(()=>{
+        const loadInitialData = async () => {
+            const deptData = await fetchDeptData();
+            setDeptData(deptData);
+        };
+        loadInitialData();
+    }, [])
+
     // 메인 페이지일 때는 단순히 children만 렌더링
     if (path === '/' || path === '/login' || path === '/signup') {
         return <>{children}</>;
@@ -141,7 +158,7 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
     
 
     // 메뉴 선택했을 때 이동할 URL 선택
-    const choiceMenu = (menuInfo: { key: string }) => {
+    const choiceMenu = async (menuInfo: { key: string }) => {
         // 클릭된 메뉴 항목의 key
         const key = menuInfo.key;
         // key 로그 출력
@@ -157,6 +174,9 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
             // console.log('url주소:', selectedItem.url);
             // 해당 URL로 이동
             router.push(selectedItem.url);
+            const deptData = await fetchDeptData();
+            console.log("프론트엔드 ServicePageLayOut 에서 확인한 트리 데이터:", deptData);
+            setDeptData(deptData);
         } else {
             alert('URL을 찾지 못했습니다. 등록된 URL을 확인해 주세요');
             console.log('URL을 찾지 못했습니다.');
@@ -164,6 +184,12 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
         const breadcrumbData = buildBreadcrumbData(key, allMenuItems);
         setBreadcrumbItems(breadcrumbData);
     };
+
+  
+    
+
+
+    
 
     // key를 이용해 sideBarData에서 해당 메뉴 항목 찾기
     const findMenuItemByKey = (key: string, items: MenuData[]): MenuData | null => {
