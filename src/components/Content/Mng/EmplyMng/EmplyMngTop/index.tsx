@@ -6,7 +6,7 @@ import type { GetProps } from 'antd';
 // Recoil
 import { useSetRecoilState } from 'recoil';
 import { addEmplyModalState } from '@/utill/atom';
-import { EmplyMngTopStyled } from '../../styled';
+import { EmplyMngTopStyled } from '../styled';
 
 type SearchProps = GetProps<typeof Input.Search>;
 // type SizeType = ConfigProviderProps['componentSize'];
@@ -34,19 +34,19 @@ const EmplyMngTop = () => {
                     //  size={size}
                     icon={<DownloadOutlined />}
                 >
-                    Data 다운로드
+                    Data 다운로드(N/A)
                 </Button>
                 <Button
                     //  size={size}
                     icon={<FileMarkdownOutlined />}
                 >
-                    업로드 양식 다운로드
+                    업로드 양식 다운로드(N/A)
                 </Button>
                 <Button
                     //  size={size}
                     icon={<UsergroupAddOutlined />}
                 >
-                    직원 일괄 업로드
+                    직원 일괄 업로드(N/A)
                 </Button>
                 <Button
                     // size={size}

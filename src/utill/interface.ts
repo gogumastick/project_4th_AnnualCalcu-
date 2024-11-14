@@ -12,11 +12,25 @@ export interface DeptDataProps {
     children?: DeptDataProps[];   
 }
 
-export interface DeptDataNode {
-    title: string;
-    key: React.Key;
-    children?: DeptDataNode[];
+// export interface DeptDataNode {
+//     // title: string | React.ReactNode;
+//     // key: string | number;
+//     title: string;
+//     key: React.Key;
+//     // value?: string;
+//     children?: DeptDataNode[];
+// }
+export interface DeptFormValuesProps {
+    deptId: number;
+    deptName: string;
+    deptParentDeptId?: number | null;
+    deptParentDeptName?: string | null;
+    deptIdSortOrder?: string | null;
+    deptTreeNodeKey?: string | null;
+    deptMemo: string;
 }
+
+
 
 // export interface DepartmentProps {
 //     id: number;

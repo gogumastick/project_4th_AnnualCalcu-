@@ -118,13 +118,19 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
     const path = router.asPath;
 
     // 페이지 생성시 백엔드에서 데이터 가져오기
-    useEffect(()=>{
+    useEffect(() => {
         const loadInitialData = async () => {
-            const deptData = await fetchDeptData();
-            setDeptData(deptData);
+            try {
+                const deptData = await fetchDeptData();
+                console.log('ServicePageLayOut의 deptData',deptData);
+                
+                setDeptData(deptData);
+            } catch (error) {
+                console.error('부서 데이터 로딩 실패:', error);
+            }
         };
         loadInitialData();
-    }, [])
+    }, []);
 
     // 메인 페이지일 때는 단순히 children만 렌더링
     if (path === '/' || path === '/login' || path === '/signup') {
@@ -175,7 +181,7 @@ const ServicePageLayOut = ({ children }: { children: React.ReactNode }) => {
             // 해당 URL로 이동
             router.push(selectedItem.url);
             const deptData = await fetchDeptData();
-            console.log("프론트엔드 ServicePageLayOut 에서 확인한 트리 데이터:", deptData);
+            // console.log("ServicePageLayOut choiceMenu클릭시 트리 데이터:", deptData);
             setDeptData(deptData);
         } else {
             alert('URL을 찾지 못했습니다. 등록된 URL을 확인해 주세요');

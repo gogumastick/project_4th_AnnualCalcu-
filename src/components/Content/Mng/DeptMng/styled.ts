@@ -43,48 +43,7 @@ export const AddDeptModalStyled = styled.div`
         width: 280px;
         /* background-color: green; */
     }
-    .DeptRetireTextBox {
-        /* padding-top :7px; */
-        /* width: 400px; */
-        /* background-color: gray; */
-        /* margin-bottom : 5px; */
-        display: flex;
-        justify-content: start; /* 가로축 정렬 */
-        align-items: center; /* 세로축 정렬 */
-        overflow: hidden;
-        white-space: nowrap;
-        opacity: 1;
-        transition: width 0.3s ease, opacity 0.3s ease;
-    }
-    .DeptRetireTextBox.hide {
-        width: 0px; /* 텍스트 숨길 때 너비 */
-        opacity: 1;
-    }
-
-    .DeptRetireTextBox.show {
-        width: 100%; /* 텍스트 보여질 때 너비 */
-        opacity: 1;
-    }
-
-    .DeptRetireDateBox {
-        /* margin: 10px 10px 0px 5px; */
-        /* width: 200px;  */
-        /* background-color :blue; */
-        /* display: flex; */
-        overflow: hidden;
-        white-space: nowrap;
-        opacity: 1;
-        transition: width 0.3s ease, opacity 0.3s ease;
-    }
-    .DeptRetireDateBox.hide {
-        width: 0px; /* 텍스트 숨길 때 너비 */
-        opacity: 1;
-    }
-
-    .DeptRetireDateBox.show {
-        width: 200px; /* 텍스트 보여질 때 너비 */
-        opacity: 1;
-    }
+    
 `;
 
 export const DeptContentStyled = styled.div`
@@ -111,4 +70,9 @@ export const DeptContentStyled = styled.div`
             /* margin: 5px; */
         }
     }
+`;
+
+export const DeptUpdateModalStyled = styled.div`
+ margin-bottom : 20px;
+    
 `;

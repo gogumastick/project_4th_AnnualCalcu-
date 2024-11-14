@@ -4,6 +4,7 @@ import { PageContentStyled } from '../../styled';
 import { MngPageStyled } from '../styled';
 import DeptContent from '@/components/Content/Mng/DeptMng/DeptContent';
 import AddDeptModal from '@/components/Content/Mng/DeptMng/AddDeptModal';
+import DeptUpdateModal from '@/components/Content/Mng/DeptMng/DeptUpdateModal';
 
 
 
@@ -22,6 +23,7 @@ const DeptMngPage = () => {
                         <DeptContent/>
                     </div>
                     <AddDeptModal/>
+                    <DeptUpdateModal/>
                 </MngPageStyled>
             </div>
         </PageContentStyled>

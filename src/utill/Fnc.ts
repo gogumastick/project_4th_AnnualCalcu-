@@ -1,64 +1,55 @@
-// import { TestEmplInfoDataInterface } from '@/utill/interface';
+import { TreeDataNode } from 'antd';
+import { DeptDataProps } from './interface';
 
 
-// 직원 조회 화면 만드는 함수
-// 내림차순 비교 함수(기존)
-// export const DescendFnc = <T>(a: T, b: T, orderBy: keyof T): 1 | -1 | 0 => {
-//     if (b[orderBy] < a[orderBy]) {
-//         return -1;
-//     }
-//     if (b[orderBy] > a[orderBy]) {
-//         return 1;
-//     }
-//     return 0;
-// }
-// 내림차순 비교 함수
-// export const DescendFnc = (a: TestEmplInfoDataInterface, b: TestEmplInfoDataInterface, orderBy: keyof TestEmplInfoDataInterface): number => {
-//     if (b[orderBy] < a[orderBy]) {
-//         return -1;
-//     }
-//     if (b[orderBy] > a[orderBy]) {
-//         return 1;
-//     }
-//     return 0;
-// };
-export const DescendFnc = <T>(a: T, b: T, orderBy: keyof T): number => {
-    if (b[orderBy] < a[orderBy]) {
-        return -1;
-    }
-    if (b[orderBy] > a[orderBy]) {
-        return 1;
-    }
-    return 0;
+// 부서데이터 트리데이터용으로 변경
+
+export const getDefaultTreeData = (deptData: DeptDataProps) => {
+    if (!deptData) return [];
+    
+    const convertDeptToTreeNode = (dept: DeptDataProps):  TreeDataNode => ({
+        title: dept.deptName,
+        key: dept.deptId,
+        children: dept.children?.map(convertDeptToTreeNode)
+    });
+
+    return Array.isArray(deptData) 
+        ? deptData.map(convertDeptToTreeNode)
+        : [convertDeptToTreeNode(deptData)];
 };
 
-// 직원 조회 화면에서 사용하는 비교 함수(기존)
-type Order = 'asc' | 'desc';
-// export const GetComparatorFnc = <Key extends keyof any>(
-//     order: Order,
-//     orderBy: Key
-// ): ((a: { [key in Key]: number | string }, b: { [key in Key]: number | string }) => number) => {
-//     return order === 'desc'
-//         ? (a, b) => DescendFnc(a, b, orderBy)
-//         : (a, b) => -DescendFnc(a, b, orderBy);
+// export const getDefaultTreeData = (deptData: DeptDataProps) => {
+//     if (!deptData) return [];
+    
+//     // DeptDataProps를 TreeDataNode 형태로 변환
+//     const convertDeptToTreeNode = (dept: DeptDataProps): TreeDataNode => ({
+//         title: dept.deptName,
+//         key: dept.deptId,
+//         children: dept.children?.map(convertDeptToTreeNode)
+//     });
+
+//     const treeData = Array.isArray(deptData) 
+//         ? deptData.map(convertDeptToTreeNode)
+//         : [convertDeptToTreeNode(deptData)];
+
+//     return convertToTreeData(treeData);
 // };
 
-// 직원 조회 화면에서 사용하는 비교 함수
-// type Order = 'asc' | 'desc';
-// export const GetComparatorFnc = (
-//     order: Order,
-//     orderBy: keyof TestEmplInfoDataInterface
-// ): ((a: TestEmplInfoDataInterface, b: TestEmplInfoDataInterface) => number) => {
-//     return order === 'desc'
-//         ? (a, b) => DescendFnc(a, b, orderBy)
-//         : (a, b) => -DescendFnc(a, b, orderBy);
-// };
-export const GetComparatorFnc = <T>(
-    order: Order,
-    orderBy: keyof T
-): ((a: T, b: T) => number) => {
-    return order === 'desc'
-        ? (a, b) => DescendFnc(a, b, orderBy)
-        : (a, b) => -DescendFnc(a, b, orderBy);
-};
+// export const convertToTreeData = (data: TreeDataNode[]) =>
+//     data.map((dept, index): TreeDataNode => ({
+//         title: dept.title,
+//         key: dept.key || `${index}+deptIndexNode`,
+//         children: dept.children ? convertToTreeData(dept.children) : undefined,
+//     }));
 
+// // antD 트리컴포넌트로 사용할 수 있게 변경
+// export const getDefaultTreeData = (deptData: DeptDataProps): TreeDataNode[] => {
+//     if (!deptData) return [];
+//     const safeData = Array.isArray(deptData) ? deptData : [deptData];
+//     return convertToTreeData(safeData.filter((item): item is TreeDataNode => 'title' in item && 'key' in item));
+// };
+// export const getDefaultTreeData = (deptData: any): TreeDataNode[] => {
+//     if (!deptData) return [];
+//     const safeData = Array.isArray(deptData) ? deptData : [deptData];
+//     return convertToTreeData(safeData.filter((item): item is DeptDataNode => 'title' in item && 'key' in item));
+// };

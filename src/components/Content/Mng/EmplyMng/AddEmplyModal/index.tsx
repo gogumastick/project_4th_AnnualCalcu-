@@ -5,14 +5,14 @@ import { useRecoilState } from 'recoil';
 import { addEmplyModalState, addedEmplyState } from '@/utill/atom';
 import { useFormik } from 'formik';
 import { useState } from 'react';
-import { AddEmplModalStyled } from '../../styled';
+import { AddEmplModalStyled } from '../styled';
 
 const AddEmplyModal = () => {
     // Modal여닫기
     const [addEmplyModalOpen, setAddEmplyModalOpen] = useRecoilState(addEmplyModalState);
     // 입력된 직원
     const [addedEmply, setAddedEmply] = useRecoilState(addedEmplyState);
-    console.log('AddEmplyModal에 addedEmply', addedEmply);
+    // console.log('AddEmplyModal에 addedEmply', addedEmply);
 
     // 연차발생여부 Checkbox상태값
     const [occuVctCheck, setOccuVctCheck] = useState<boolean>(true);

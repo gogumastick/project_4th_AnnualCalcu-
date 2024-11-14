@@ -22,19 +22,19 @@ const DeptMngTop = () => {
                     //  size={size}
                     icon={<DownloadOutlined />}
                 >
-                    Data 다운로드
+                    Data 다운로드(N/A)
                 </Button>
                 <Button
                     //  size={size}
                     icon={<FileMarkdownOutlined />}
                 >
-                    업로드 양식 다운로드
+                    업로드 양식 다운로드(N/A)
                 </Button>
                 <Button
                     //  size={size}
                     icon={<UploadOutlined />}
                 >
-                    부서 일괄 업로드
+                    부서 일괄 업로드(N/A)
                 </Button>
                 <Button
                     // size={size}

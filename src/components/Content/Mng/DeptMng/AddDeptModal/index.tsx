@@ -10,6 +10,7 @@ import axios from 'axios';
 import { mngUrl } from '@/utill/router';
 // 백엔드 deptdataget
 import { fetchDeptData } from '@/utill/api';
+import DeptSelect from '../DeptSelect';
 
 const AddDeptModal = () => {
     // Modal여닫기
@@ -23,11 +24,11 @@ const AddDeptModal = () => {
     const addDeptFormik = useFormik({
         initialValues: {
             // 부서이름
-            DeptName: '',
+            deptName: '',
             // 상위부서
-            ParentName: '',
+            parentName: '',
             // 메모
-            DeptMemo: '',
+            deptMemo: '',
         },
         onSubmit: (values) => {
             // const newAddedDept = {
@@ -45,9 +46,9 @@ const AddDeptModal = () => {
         const addDeptFnc = async () => {
             try {
                 const result = await axios.post(mngUrl, {
-                    deptParentDeptId: addDeptFormik.values.ParentName || null,
-                    deptName: addDeptFormik.values.DeptName,
-                    deptMemo: addDeptFormik.values.DeptMemo,
+                    deptParentDeptId: addDeptFormik.values.parentName || null,
+                    deptName: addDeptFormik.values.deptName,
+                    deptMemo: addDeptFormik.values.deptMemo,
                 });
 
                 // 부서 데이터를 Recoil의 deptDataState에 업데이트
@@ -87,27 +88,27 @@ const AddDeptModal = () => {
                         <div>
                             <Typography.Title level={5}>부서 이름＊</Typography.Title>
                             <Input
-                                name="DeptName"
+                                name="deptName"
                                 onChange={addDeptFormik.handleChange}
-                                value={addDeptFormik.values.DeptName}
+                                value={addDeptFormik.values.deptName}
                                 placeholder="부서이름"
                             />
                         </div>
                         <div>
                             <Typography.Title level={5}>상위 부서</Typography.Title>
-                            <Input
-                                name="ParentName"
-                                onChange={addDeptFormik.handleChange}
-                                value={addDeptFormik.values.ParentName}
-                                placeholder="상위부서선택"
+                            <DeptSelect
+                                value={addDeptFormik.values.parentName}
+                                onChange={(value) => {
+                                    addDeptFormik.setFieldValue('parentName', value);
+                                }}
                             />
                         </div>
                         <div>
                             <Typography.Title level={5}>메모</Typography.Title>
                             <Input
-                                name="DeptMemo"
+                                name="deptMemo"
                                 onChange={addDeptFormik.handleChange}
-                                value={addDeptFormik.values.DeptMemo}
+                                value={addDeptFormik.values.deptMemo}
                                 placeholder="메모"
                             />
                         </div>
